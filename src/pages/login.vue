@@ -72,7 +72,6 @@ import { useAuthStore } from "../stores/useAuth";
 
 const store = useAuthStore();
 const login_data = ref({});
-const res = ref();
 const errors = ref();
 
 const errorClasses = computed(() => {
@@ -101,7 +100,6 @@ async function login() {
       }
       store.tokens.access = response.data.access;
       store.tokens.refresh = response.data.refresh;
-      res.value = response;
     })
     .catch((err) => {
       console.log(err.response);
